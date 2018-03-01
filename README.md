@@ -8,6 +8,9 @@ Secondly (optional), run "mcf_analyzer.R" to plot the data and the corresponding
 Lastly, run "model_fitting.R" to fit the proposed model and obtain the preliminary results, such as runtime, estimated model parameters, and mark interaction function plots. 
 
 *Note 1, the munuscript can be downloaded from https://arxiv.org/abs/1802.08308.
+
 *Note 2, the notations in the code and data are followed the notations in the manuscript.
+
 *Note 3, the results obtained by running the code in this repository may not be exact the same as the results reported in the manuscript, because we reported the results pooled from multiple MCMC chains in the manuscript.
+
 *Note 4, for large datasets and large numbers of c, it takes longer time. Please first try small datasets such as "amacrine" and "betacells", or run the MCMC algorithm with small numbers of iterations (e.g. 5,000) and small value of c (e.g. 0.05).
