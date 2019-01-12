@@ -40,6 +40,7 @@ z2interaction = function(x, y, z, Q, c) {
     interaction[, q] <- temp/sum(temp)
   }
   return (interaction);
+
 }
 
 z_generator = function(x, y, Q, Theta, lambda, c, omega, iter, seed) {
@@ -84,12 +85,20 @@ array2matrix_r = function(theta, Q) {
   return (Theta);
 }
 
-Theta2interaction_2 = function(omega, Theta, lambda, d) {
-  Q <- length(omega);
-  temp <- matrix(NA, nrow = Q, ncol = Q);
-  for (q in 1:Q) {
-    temp[, q] <- exp(-omega - Theta[, q]*exp(-lambda*d));
-    temp[, q] <- temp[, q]/sum(temp[, q]);
+color = function(i, j) {
+  col <- NA;
+  if (i == j) {
+    col = i;
+  } else {
+    if ((i = 1 && j == 2) || (i = 2 && j == 1)) {
+      col = 8;
+    }
+    if ((i = 1 && j == 3) || (i = 3 && j == 1)) {
+      col = 4;
+    }
+    if ((i = 3 && j == 2) || (i = 2 && j == 3)) {
+      col = 6;
+    }
   }
-  return (temp);
+  return (col);
 }

@@ -7,15 +7,12 @@ double logenergy(arma::vec z, NumericVector zi, IntegerMatrix E, NumericVector d
 arma::vec model(arma::vec z, IntegerMatrix E, NumericVector d, int id_start, int id_end, IntegerVector flag_start, IntegerVector flag_end, NumericMatrix Theta, NumericVector omega, double lambda);
 
 // [[Rcpp::export]]
-Rcpp::List model_estimator(arma::vec z, IntegerMatrix E, NumericVector d, LogicalVector dd, IntegerVector id_start, IntegerVector id_end, IntegerVector flag_start, IntegerVector flag_end, NumericMatrix Theta_s, NumericVector omega_s, double lambda_s, double mu, double sigma, double mu_omega, double sigma_omega, double a, double b, int iter, int burn) {
+Rcpp::List model_estimator(arma::vec z, IntegerMatrix E, NumericVector d, LogicalVector dd, IntegerVector id_start, IntegerVector id_end, IntegerVector flag_start, IntegerVector flag_end, NumericMatrix Theta_s, NumericVector omega_s, double lambda_s, double mu, double sigma, double mu_omega, double sigma_omega, double a, double b, int iter, int burn, int M, double tau, double phi) {
   int N = id_start.size();
   int n = z.n_rows;
   int Q = Theta_s.nrow();
-  int M = 1;
   int i, ii, q, qq, qqq, qqqq, count, k;
   int count_2 = 10;
-  double tau = 0.1;
-  double phi = 1;
   double hastings = 0;
   double accept_theta = 0;
   double accept_lambda = 0;
