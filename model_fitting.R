@@ -27,7 +27,9 @@ Q <- 2;          # Number of marks
 c <- 0.1;        # Tuning parameter c that defines the neighborhood for each point
 iter <- 10000;   # Number of iterations
 burn <- iter/2;  # Number of burn-in 
-
+M <- 1;
+tau <- sqrt(0.01);
+phi <- 10000;
 
 
 # ========================================================================================
@@ -82,7 +84,7 @@ flag_end <- build$flag_end;
 # ========================================================================================
 # ========================================================================================
 start_time <- proc.time();
-Y <- model_estimator(z, edge, distance, duplicate, id_start, id_end, flag_start, flag_end, Theta_start, omega_start, lambda_start, mu_theta, sigma_theta, mu_omega, sigma_omega, a, b, iter, burn);
+Y <- model_estimator(z, edge, distance, duplicate, id_start, id_end, flag_start, flag_end, Theta_start, omega_start, lambda_start, mu_theta, sigma_theta, mu_omega, sigma_omega, a, b, iter, burn, M, tau, phi);
 end_time <- proc.time();
 time <- end_time - start_time;
 
