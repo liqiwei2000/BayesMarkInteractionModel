@@ -20,8 +20,14 @@ Theta2interaction = function(Theta) {
   return (t(exp(-Theta)/(colSums(exp(-Theta)))));
 }
 
-Theta2interaction_2 = function(Theta, lambda, d) {
-  return (t(exp(-Theta*exp(-lambda*d))/(colSums(exp(-Theta*exp(-lambda*d))))));
+Theta2interaction_2 = function(omega, Theta, lambda, d) {
+  Q <- length(omega);
+  temp <- matrix(NA, nrow = Q, ncol = Q);
+  for (q in 1:Q) {
+    temp[, q] <- exp(-omega - Theta[, q]*exp(-lambda*d));
+    temp[, q] <- temp[, q]/sum(temp[, q]);
+  }
+  return (temp);
 }
 
 z2interaction = function(x, y, z, Q, c) {
