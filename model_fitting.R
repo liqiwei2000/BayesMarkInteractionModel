@@ -57,7 +57,7 @@ b <- 0.001;
 theta_start <- rnorm(Q*(Q + 1)/2, mu_theta, sigma_theta);
 theta_start[length(theta_start)] <- 1;
 Theta_start <- array2matrix_r(theta_start, Q);
-omega_start <- c(1, 1);
+omega_start <- rep(1, Q);
 lambda_start <- rgamma(1, 1, 1);
 
 
